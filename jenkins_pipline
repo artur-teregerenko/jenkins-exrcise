@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+  stages {
+    stage('get script') {
+      steps {
+        git url: 'https://github.com/artur-teregerenko/Exercise_1'
+      }
+    }
+    stage('check_url') {
+      steps {
+        sh 'python check_url.py ${params.URL}'
+      }
+    }
+	stage('send result') {
+	  steps{
+	    emailext body: '',
+      subject: 'Script Result',
+      to: 'teregerenko_a@mail.ru'
+	  }
+	}
+  }
+}
