@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('get script') {
       steps {
-        git url: 'https://github.com/artur-teregerenko/Exercise_1'
+        git branch: 'main', 
+          url: 'https://github.com/artur-teregerenko/Exercise_1'
       }
     }
     stage('check_url') {
